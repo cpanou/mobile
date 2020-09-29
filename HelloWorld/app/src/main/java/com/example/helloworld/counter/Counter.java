@@ -22,7 +22,7 @@ public class Counter {
     private TextView counterText;
 
     private Consumer<Integer> updateCounterText = (count) -> {
-        Log.d(LOG_TAG,"Counter Updated %s" + count);
+        Log.d(LOG_TAG,"Counter Updated " + count);
         counterText.setText(String.valueOf(count));
     };
 
