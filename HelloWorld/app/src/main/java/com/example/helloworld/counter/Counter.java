@@ -20,14 +20,11 @@ public class Counter {
 
     private Consumer<Integer> updateCounterText = (count) -> counterText.setText(String.valueOf(count));
     private Consumer<View> countUp = (view) -> {
-        view.setBackgroundColor(mCount % 2 == 0 ? context.getColor(R.color.colorPrimary) : context.getColor(R.color.colorSecondary));
-        if (mCount == 0) zeroButton.setBackgroundColor(context.getColor(R.color.colorWarn));
+        view.setBackgroundColor(mCount % 2== 0 ? context.getColor(R.color.colorPrimary) : context.getColor(R.color.colorSecondary));
+        if(mCount ==0) zeroButton.setBackgroundColor(context.getColor(R.color.colorWarn));
         updateCounterText.accept(++mCount);
     };
-    private Consumer<View> zeroCounter = (view) -> {
-        view.setBackgroundColor(context.getColor(R.color.grey));
-        updateCounterText.accept(mCount = 0);
-    };
+    private Consumer<View> zeroCounter = (view) -> updateCounterText.accept(mCount = 0);
     private Consumer<View> showToast = (view) -> Toast.makeText(context, "Count: " + mCount, Toast.LENGTH_LONG).show();
 
     public Counter(Context context, Button countButton, Button zeroButton, Button toastButton, TextView counterText) {
