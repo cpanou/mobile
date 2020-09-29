@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.helloworld.util.Counter;
+import com.example.helloworld.counter.Counter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(LOG_TAG, "Counter App Started!");
-
+        Log.d(LOG_TAG, "MainActivity Started!");
         initialiseView();
     }
 
@@ -37,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
         Button countButton = findViewById(R.id.count_button);
         Button zeroButton = findViewById(R.id.zero_button);
         TextView counterText = findViewById(R.id.show_count);
-
-        Counter.create(this, countButton, zeroButton, toastButton, counterText)
-                .initializeHandlers();
+        Counter.bind(this, countButton, zeroButton, toastButton, counterText);
     }
 
 }

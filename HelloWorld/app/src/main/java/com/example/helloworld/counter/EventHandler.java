@@ -1,4 +1,4 @@
-package com.example.helloworld.util;
+package com.example.helloworld.counter;
 
 import android.util.Log;
 import android.view.View;
