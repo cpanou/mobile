@@ -8,7 +8,7 @@ import com.example.helloworld.MainActivity;
 
 import java.util.function.Consumer;
 
-public class EventHandler {
+public class EventBinder {
 
     /**
      *  Create a variable to store the activity name, to Use it as a TAG to filter the logs.
