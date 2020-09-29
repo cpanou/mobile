@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".MainActivity">
+
+<Button
+    android:id="@+id/button_toast"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/colorPrimary"
+    android:text="@string/toast_button_label"
+    android:textColor="@android:color/white" />
+
+<Button
+    android:id="@+id/zero_button"
+    android:layout_margin="4dp"
+    android:layout_below="@+id/button_toast"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWarn"
+    android:text="@string/zero_button_label"
+    android:layout_centerHorizontal="true"
+    android:textColor="@color/colorAccent" />
+
+<TextView
+    android:id="@+id/show_count"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@color/colorSecondary"
+    android:text="@string/count_default"
+    android:textAlignment="center"
+    android:textSize="@dimen/show_count_text_size_land"
+    android:textStyle="bold"
+    android:layout_below="@+id/zero_button"
+    android:layout_alignParentStart="true" />
+
+<Button
+    android:id="@+id/button_count"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:background="@color/colorPrimary"
+    android:text="@string/count_button_label"
+    android:textColor="@android:color/white"
+    android:layout_below="@+id/show_count"
+    android:layout_centerHorizontal="true"/>
+</RelativeLayout>

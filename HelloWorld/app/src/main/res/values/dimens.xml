@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="show_count_text_size">240sp</dimen>
+    <dimen name="show_count_text_size_land">160sp</dimen>
+    <dimen name="button_text_size_tablet">60sp</dimen>
+    <dimen name="show_count_text_size_tablet">240sp</dimen>
+</resources>
