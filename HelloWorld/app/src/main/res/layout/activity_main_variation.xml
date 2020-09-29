@@ -23,7 +23,7 @@
         android:layout_margin="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWarn"
+        android:background="@color/grey"
         android:text="@string/zero_button_label"
         android:textColor="@color/colorAccent" />
 

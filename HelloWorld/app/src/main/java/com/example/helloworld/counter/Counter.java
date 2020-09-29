@@ -3,15 +3,11 @@ package com.example.helloworld.counter;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.helloworld.MainActivity;
+import com.example.helloworld.R;
 
-import org.w3c.dom.Text;
-
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class Counter {
@@ -22,7 +18,7 @@ public class Counter {
     private TextView counterText;
 
     private Consumer<Integer> updateCounterText = (count) -> {
-        Log.d(LOG_TAG,"Counter Updated " + count);
+        Log.d(LOG_TAG, "Counter Updated " + count);
         counterText.setText(String.valueOf(count));
     };
 
@@ -33,7 +29,10 @@ public class Counter {
     }
 
     public Consumer<View> getCountUp() {
-        return (view) -> updateCounterText.accept(++mCount);
+        return (view) -> {
+            view.setBackgroundColor(mCount % 2 == 0 ? context.getColor(R.color.colorPrimary) : context.getColor(R.color.colorSecondary));
+            updateCounterText.accept(++mCount);
+        };
     }
 
     public Consumer<View> getZeroCounter() {
@@ -43,4 +42,9 @@ public class Counter {
     public Consumer<View> getShowToast() {
         return (view) -> Toast.makeText(context, "Count: " + mCount, Toast.LENGTH_LONG).show();
     }
+
+    public Integer getmCount() {
+        return mCount;
+    }
+
 }

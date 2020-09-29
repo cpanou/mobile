@@ -26,7 +26,7 @@
         android:id="@+id/zero_button"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorWarn"
+        android:background="@color/grey"
         android:text="@string/zero_button_label"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="@+id/toast_button"
