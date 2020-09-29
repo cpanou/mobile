@@ -4,5 +4,6 @@
     <dimen name="show_count_text_size_land">160sp</dimen>
     <dimen name="button_text_size_tablet">60sp</dimen>
     <dimen name="show_count_text_size_tablet">240sp</dimen>
-
+    <dimen name="padding_regular">10dp</dimen>
+    <dimen name="lie_spacing">5sp</dimen>
 </resources>

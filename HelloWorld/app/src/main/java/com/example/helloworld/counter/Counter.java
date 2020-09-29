@@ -23,6 +23,7 @@ public class Counter {
         view.setBackgroundColor(mCount % 2== 0 ? context.getColor(R.color.colorPrimary) : context.getColor(R.color.colorSecondary));
         if(mCount ==0) zeroButton.setBackgroundColor(context.getColor(R.color.colorWarn));
         updateCounterText.accept(++mCount);
+
     };
     private Consumer<View> zeroCounter = (view) -> updateCounterText.accept(mCount = 0);
     private Consumer<View> showToast = (view) -> Toast.makeText(context, "Count: " + mCount, Toast.LENGTH_LONG).show();
