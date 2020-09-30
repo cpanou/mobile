@@ -1,10 +1,10 @@
-package com.example.helloworld.counter;
+package com.example.helloworld.counter.helpers;
 
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.helloworld.MainActivity;
+import com.example.helloworld.counter.CounterActivity;
 
 import java.util.function.Consumer;
 
@@ -13,7 +13,7 @@ public class EventBinder {
     /**
      *  Create a variable to store the activity name, to Use it as a TAG to filter the logs.
      * */
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final String LOG_TAG = CounterActivity.class.getSimpleName();
 
     public static void setButtonHandler(Button button, Consumer<View> consumer) {
         Log.d(LOG_TAG, "init");

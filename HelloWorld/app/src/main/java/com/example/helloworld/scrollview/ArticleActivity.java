@@ -1,8 +1,10 @@
-package com.example.helloworld;
+package com.example.helloworld.scrollview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.helloworld.R;
 
 public class ArticleActivity extends AppCompatActivity {
 

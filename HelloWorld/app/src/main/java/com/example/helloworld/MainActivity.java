@@ -1,42 +1,33 @@
 package com.example.helloworld;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.helloworld.counter.Counter;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ScrollView;
+
+import com.example.helloworld.counter.CounterActivity;
+import com.example.helloworld.counter.Messages;
+import com.example.helloworld.scrollview.ArticleActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * Create a variable to store the activity name, to Use it as a TAG to filter the logs.
-     */
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
-
-    /**
-     * Equivalent to  public static void main() { ... } in traditional Java applications.
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(LOG_TAG, "MainActivity Started!");
-        initialiseView();
     }
 
-    private void initialiseView() {
-        bindCounterView();
+    public void launchCounterActivity(View view) {
+        Intent intent = new Intent(this, CounterActivity.class);
+        intent.putExtra(Messages.COUNTER_VALUE, 20);
+        startActivity(intent);
     }
 
-    private void bindCounterView() {
-        Button toastButton = findViewById(R.id.toast_button);
-        Button countButton = findViewById(R.id.count_button);
-        Button zeroButton = findViewById(R.id.zero_button);
-        TextView counterText = findViewById(R.id.show_count);
-        Counter.bind(this, countButton, zeroButton, toastButton, counterText);
+    public void launchScrollActivity(View view) {
+        Intent intent = new Intent(this, ArticleActivity.class);
+        startActivity(intent);
     }
 
 }

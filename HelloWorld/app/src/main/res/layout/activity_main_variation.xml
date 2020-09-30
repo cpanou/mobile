@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="4dp"
-    tools:context=".MainActivity">
+    tools:context=".counter.CounterActivity">
 
     <Button
         android:id="@+id/toast_button"
