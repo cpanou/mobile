@@ -1,5 +1,5 @@
 # Fullstack Mobile Development - Android
-========================================
+
 
 This course covers the fundamental aspects of Android Development. The basis is covered by te [Android Developer Fundamentals](https://developer.android.com/courses/fundamentals-training/overview-v2) Course by Google.
 
