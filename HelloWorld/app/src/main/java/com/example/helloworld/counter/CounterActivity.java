@@ -3,6 +3,7 @@ package com.example.helloworld.counter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,23 +29,19 @@ public class CounterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
         Log.d(LOG_TAG, "MainActivity Started!");
-        initialiseView();
-    }
 
-    private void initialiseView() {
         Intent intent = getIntent();
         int count = intent.getIntExtra(COUNTER_VALUE, 0);
-        bindCounterView(count);
-    }
 
-    private void bindCounterView(int count) {
         Button toastButton = findViewById(R.id.toast_button);
         Button countButton = findViewById(R.id.count_button);
         Button zeroButton = findViewById(R.id.zero_button);
         TextView counterText = findViewById(R.id.show_count);
+
         Counter.init(this, count)
                 .with(countButton, zeroButton, toastButton, counterText)
                 .start();
     }
+
 
 }

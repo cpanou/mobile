@@ -22,17 +22,19 @@ public class Counter {
         if (count > 0) zeroButton.setBackgroundColor(context.getColor(R.color.colorWarn));
         counterText.setText(String.valueOf(count));
     };
+
     private Consumer<View> countUp = (view) -> {
         view.setBackgroundColor(mCount % 2 == 0 ? context.getColor(R.color.colorPrimary) : context.getColor(R.color.colorSecondaryDark));
         updateCounterText.accept(++mCount);
-
     };
+
     private Consumer<View> zeroCounter = (view) -> {
         view.setBackgroundColor(context.getColor(R.color.grey));
         updateCounterText.accept(mCount = 0);
     };
 
-    private Consumer<View> showToast = (view) -> Toast.makeText(context, "Count: " + mCount, Toast.LENGTH_LONG).show();
+    private Consumer<View> showToast = (view) ->
+            Toast.makeText(context, "Count: " + mCount, Toast.LENGTH_LONG).show();
 
     public Counter(Context context, Integer mCount) {
         this.context = context;
