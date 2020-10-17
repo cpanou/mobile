@@ -17,6 +17,7 @@ public class ReplyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LOG_TAG, "--------");
         Log.d(LOG_TAG, "onCreate");
         setContentView(R.layout.activity_reply);
 
