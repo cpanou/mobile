@@ -4,11 +4,14 @@
 *.ap_
 *.aab
 
+
 # Intellij
 */.idea/
 # Gradle files
 */.gradle/
 */build/
+
+
 
 # Files for the ART/Dalvik VM
 *.dex
