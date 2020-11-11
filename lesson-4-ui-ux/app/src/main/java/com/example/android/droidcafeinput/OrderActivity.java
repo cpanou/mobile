@@ -18,6 +18,7 @@ package com.example.android.droidcafeinput;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -148,4 +149,15 @@ public class OrderActivity extends AppCompatActivity
     public void onNothingSelected(AdapterView<?> adapterView) {
         // Do nothing.
     }
+
+    public void showDateDialog(View view) {
+        DialogFragment dateDialog = new MyDateFragment();
+        dateDialog.show(getSupportFragmentManager(), "Date Picker");
+    }
+
+    public void setDateResult(String dateResult) {
+        TextView dateText = findViewById(R.id.date_result);
+        dateText.setText(dateResult);
+    }
+
 }

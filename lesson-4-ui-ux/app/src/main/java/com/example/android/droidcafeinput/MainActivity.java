@@ -16,9 +16,11 @@
 
 package com.example.android.droidcafeinput;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -29,6 +31,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.droidcafeinput.showcase.MyFloatingActionButtonListener;
+
 /**
  * This app demonstrates images used as buttons and a floating action button to
  * use an intent to launch a second activity. The app lets a user tap an image
@@ -38,12 +42,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     // Tag for the intent extra.
-    public static final String EXTRA_MESSAGE =
-            "com.example.android.droidcafeinput.extra.MESSAGE";
+    public static final String EXTRA_MESSAGE = "com.example.android.droidcafeinput.extra.MESSAGE";
 
     // The order message, displayed in the Toast and sent to the new Activity.
     private String mOrderMessage;
-
+//    private MyFloatingActionButtonListener myFabListener;
     /**
      * Creates the content view, the toolbar, and the floating action button.
      *
@@ -58,23 +61,39 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,
-                        OrderActivity.class);
-                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
-                startActivity(intent);
-            }
-        });
-
         TextView donut = findViewById(R.id.donut_description);
         TextView iceCream = findViewById(R.id.ice_cream_description);
         TextView froYo = findViewById(R.id.froyo_description);
         registerForContextMenu(donut);
         registerForContextMenu(iceCream);
         registerForContextMenu(froYo);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+//        myFabListener = new MyFloatingActionButtonListener(this, "You Have Not Ordered Anything");
+//        fab.setOnClickListener( myFabListener );
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(MainActivity.this);
+                myAlertBuilder.setTitle("Make Order?");
+                myAlertBuilder.setMessage(mOrderMessage);
+                myAlertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                        intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+                        startActivity(intent);
+                    }
+                });
+                myAlertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this, "Order Canceled", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                myAlertBuilder.show();
+            }
+        });
     }
 
 
