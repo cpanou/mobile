@@ -37,7 +37,7 @@ public class MyDateFragment extends DialogFragment implements DatePickerDialog.O
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        String selectedDate = (day +"/" + (month + 1 ) + "/" + year);
+        String selectedDate = (day + "/" + (month + 1 ) + "/" + year);
         OrderActivity holderActivity = (OrderActivity) getActivity();
         holderActivity.setDateResult(selectedDate);
     }
