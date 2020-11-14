@@ -3,12 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pager.TabFragment3">
+    tools:context=".recyclerview.CookingFragment">
 
     <TextView
+        android:id="@+id/cooking_tips"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text= "@string/cooking_tips"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_below="@id/cooking_tips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

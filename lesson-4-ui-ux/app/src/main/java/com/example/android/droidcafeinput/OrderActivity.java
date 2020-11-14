@@ -49,7 +49,7 @@ public class OrderActivity extends AppCompatActivity
 
         // Get the intent and its data.
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(CafeActivity.EXTRA_MESSAGE);
         TextView textView = findViewById(R.id.order_textview);
         textView.setText(message);
 

@@ -1,59 +1,23 @@
-/*
- * Copyright (C) 2018 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.example.android.droidcafeinput;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.android.droidcafeinput.showcase.MyFloatingActionButtonListener;
+import com.example.android.droidcafeinput.pager.PagerAdapter;
 
-/**
- * This app demonstrates images used as buttons and a floating action button to
- * use an intent to launch a second activity. The app lets a user tap an image
- * to make a choice. The app displays a Toast message showing the user’s choice
- * and sends the choice as data with an intent to launch the second activity.
- */
 public class MainActivity extends AppCompatActivity {
 
-    // Tag for the intent extra.
-    public static final String EXTRA_MESSAGE = "com.example.android.droidcafeinput.extra.MESSAGE";
-
-    // The order message, displayed in the Toast and sent to the new Activity.
-    private String mOrderMessage;
-//    private MyFloatingActionButtonListener myFabListener;
-    /**
-     * Creates the content view, the toolbar, and the floating action button.
-     *
-     * This method is provided in the Basic Activity template.
-     *
-     * @param savedInstanceState Saved instance state bundle.
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,143 +25,71 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView donut = findViewById(R.id.donut_description);
-        TextView iceCream = findViewById(R.id.ice_cream_description);
-        TextView froYo = findViewById(R.id.froyo_description);
-        registerForContextMenu(donut);
-        registerForContextMenu(iceCream);
-        registerForContextMenu(froYo);
+        setupTabbedViewPager();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-//        myFabListener = new MyFloatingActionButtonListener(this, "You Have Not Ordered Anything");
-//        fab.setOnClickListener( myFabListener );
-        fab.setOnClickListener(new View.OnClickListener() {
+        final DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.open_drawer,
+                R.string.close_drawer
+        );
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+
+        NavigationView drawer = findViewById(R.id.drawer);
+        drawer.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(MainActivity.this);
-                myAlertBuilder.setTitle("Make Order?");
-                myAlertBuilder.setMessage(mOrderMessage);
-                myAlertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-                        intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_cafe:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        Intent intent = new Intent(MainActivity.this, CafeActivity.class);
                         startActivity(intent);
-                    }
-                });
-                myAlertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(MainActivity.this, "Order Canceled", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                myAlertBuilder.show();
+                        return true;
+                    case R.id.nav_send:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        Toast.makeText(MainActivity.this, "Send Selected", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.nav_share:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        Toast.makeText(MainActivity.this, "Share Selected", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default: return false;
+                }
             }
         });
     }
 
+    private void setupTabbedViewPager() {
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.context_menu, menu);
+        tabLayout.addTab(getTab(tabLayout, "Top Stories"));
+        tabLayout.addTab(getTab(tabLayout, "Tech News"));
+        tabLayout.addTab(getTab(tabLayout, "Cooking"));
+        tabLayout.addTab(getTab(tabLayout, "Top Stories"));
+        tabLayout.addTab(getTab(tabLayout, "Top Stories"));
+
+        final ViewPager pager = findViewById(R.id.pager);
+        PagerAdapter myAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        pager.setAdapter(myAdapter);
+        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                pager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
     }
 
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.context_edit) {
-            displayToast(getString(R.string.context_edit_message));
-            return true;
-        } else if (id == R.id.context_share) {
-            displayToast(getString(R.string.context_share_message));
-            return true;
-        } else if (id == R.id.context_delete) {
-            displayToast(getString(R.string.context_delete_message));
-            return true;
-        }
-        return super.onContextItemSelected(item);
-    }
-
-    /**
-     * Inflates the menu, and adds items to the action bar if it is present.
-     *
-     * @param menu Menu to inflate.
-     * @return Returns true if the menu inflated.
-     */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    /**
-     * Handles app bar item clicks.
-     *
-     * @param item Item clicked.
-     * @return True if one of the defined items was clicked.
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        // This comment suppresses the Android Studio warning about simplifying
-        // the return statements.
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_order) {
-            Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_status) {
-            displayToast(getString(R.string.action_status_message));
-            return true;
-        } else if (id == R.id.action_favorites) {
-            displayToast(getString(R.string.action_favorites_message));
-            return true;
-        } else if (id == R.id.action_contact) {
-            displayToast(getString(R.string.action_contact_message));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Displays a Toast with the message.
-     *
-     * @param message Message to display.
-     */
-    public void displayToast(String message) {
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * Shows a message that the donut image was clicked.
-     */
-    public void showDonutOrder(View view) {
-        mOrderMessage = getString(R.string.donut_order_message);
-        displayToast(mOrderMessage);
-    }
-
-    /**
-     * Shows a message that the ice cream sandwich image was clicked.
-     */
-    public void showIceCreamOrder(View view) {
-        mOrderMessage = getString(R.string.ice_cream_order_message);
-        displayToast(mOrderMessage);
-    }
-
-    /**
-     * Shows a message that the froyo image was clicked.
-     */
-    public void showFroyoOrder(View view) {
-        mOrderMessage = getString(R.string.froyo_order_message);
-        displayToast(mOrderMessage);
+    private TabLayout.Tab getTab(TabLayout tabLayout, String s) {
+        return tabLayout.newTab().setText(s);
     }
 
 }

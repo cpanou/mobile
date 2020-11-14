@@ -6,13 +6,13 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.android.droidcafeinput.MainActivity;
+import com.example.android.droidcafeinput.CafeActivity;
 
 public class MyFloatingActionButtonListener implements View.OnClickListener {
     private final Context context;
     private String mOrderMessage;
 
-    public MyFloatingActionButtonListener(MainActivity mainActivity, String mOrderMessage) {
+    public MyFloatingActionButtonListener(CafeActivity mainActivity, String mOrderMessage) {
         this.context = mainActivity;
         this.mOrderMessage = mOrderMessage;
     }

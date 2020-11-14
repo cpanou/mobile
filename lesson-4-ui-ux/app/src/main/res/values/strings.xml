@@ -64,6 +64,14 @@
 
     <string name="hello_blank_fragment">These are the top stories: </string>
     <string name="tech_news_you_can_use">Tech news you can use:</string>
-    <string name="cooking_tips">Cooking tips:</string>
+    <string name="cooking_tips">Recipes</string>
+    <string name="lesson_4_ux_ui">Lesson 4- UX/UI</string>
+    <string name="cafe_activity">cafe activity</string>
+    <string name="contact_us">contact us</string>
+    <string name="send">send</string>
+    <string name="share">share</string>
+    <string name="open_drawer">Drawer has opened</string>
+    <string name="close_drawer">Drawer Closed</string>
+    <string name="dummy">dummy</string>
 
 </resources>

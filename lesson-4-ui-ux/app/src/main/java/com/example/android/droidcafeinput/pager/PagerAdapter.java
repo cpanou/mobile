@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.android.droidcafeinput.recyclerview.CookingFragment;
+
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
     private final int numOfTabs;
@@ -20,7 +22,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 3:
             case 4: return new TabFragment1();
             case 1: return new TabFragment2();
-            case 2: return new TabFragment3();
+            case 2: return new CookingFragment();
             default: return null;
         }
     }
