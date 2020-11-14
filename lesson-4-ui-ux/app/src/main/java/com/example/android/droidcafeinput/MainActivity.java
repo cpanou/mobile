@@ -66,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(getTab(tabLayout, "Top Stories"));
         tabLayout.addTab(getTab(tabLayout, "Tech News"));
         tabLayout.addTab(getTab(tabLayout, "Cooking"));
-        tabLayout.addTab(getTab(tabLayout, "Top Stories"));
-        tabLayout.addTab(getTab(tabLayout, "Top Stories"));
 
         final ViewPager pager = findViewById(R.id.pager);
         PagerAdapter myAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
