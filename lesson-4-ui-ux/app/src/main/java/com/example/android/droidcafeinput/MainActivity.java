@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
 
         tabLayout.addTab(getTab(tabLayout, "Top Stories"));
-        tabLayout.addTab(getTab(tabLayout, "Tech News"));
+        tabLayout.addTab(getTab(tabLayout, "Background"));
         tabLayout.addTab(getTab(tabLayout, "Cooking"));
 
         final ViewPager pager = findViewById(R.id.pager);
