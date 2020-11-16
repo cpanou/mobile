@@ -19,18 +19,19 @@ public class CookingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragment = inflater.inflate(R.layout.fragment_cooking, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_cooking, container, false);
         // Inflate the layout for this fragment
         Log.d(CookingFragment.class.getSimpleName(), "CREATED");
         for(int i=0; i < 20 ; i++) {
             recipes.addLast("Recipe " + i);
         }
+
         CookingRecipeAdapter adapter = new CookingRecipeAdapter(recipes, getActivity());
 
-        RecyclerView recyclerView = fragment.findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = fragmentView.findViewById(R.id.recyclerview);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        return fragment;
+        return fragmentView;
     }
 
     @Override
