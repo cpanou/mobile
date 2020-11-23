@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -44,18 +45,10 @@ public class HttpFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 OkHttpClient okHttpClient = new OkHttpClient();
-                String ts  = String.valueOf(System.currentTimeMillis());
-                String hash = "";
-                try {
-                    MessageDigest md = MessageDigest.getInstance("MD5");
-                    md.update((ts+"f4f60bbba0eb44b0a8ae7b22b70eada6"+"4f0a1bf779e40df51c8009217fffc104330e1ff7").getBytes());
-                    hash = new String(md.digest());
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                }
+
                 String url = "http://gateway.marvel.com/v1/public/comics?" +
                         "ts=1605656906&apikey=f4f60bbba0eb44b0a8ae7b22b70eada6&hash=2160259a947a668a2ad6db817b4f6e8c";
-                Log.d(TAG, hash);
+
                 Request request = new Request.Builder()
                         .url(url)
                         .build();
@@ -93,6 +86,7 @@ public class HttpFragment extends Fragment {
                     }
                 });
             }
+
         });
         return root;
     }
