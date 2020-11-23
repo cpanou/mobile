@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.droidcafeinput.CafeActivity">
+    <item
+        android:id="@+id/context_edit"
+        android:orderInCategory="10"
+        android:title="@string/context_edit_message" />
+    <item
+        android:id="@+id/context_share"
+        android:orderInCategory="20"
+        android:title="@string/context_share_message" />
+    <item
+        android:id="@+id/context_delete"
+        android:orderInCategory="30"
+        android:title="@string/context_delete_message"/>
+</menu>
