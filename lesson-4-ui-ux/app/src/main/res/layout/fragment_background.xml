@@ -20,16 +20,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progress"
+        android:id="@+id/bg_task_progress"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         style="?android:attr/progressBarStyleHorizontal"
-        android:progress="20"
+        android:visibility="invisible"
+        android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg_task_text" />
-
 
     <Button
         android:id="@+id/bg_task_button"
@@ -37,8 +37,43 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/start"
+        style="?attr/borderlessButtonStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progress" />
+        app:layout_constraintTop_toBottomOf="@id/bg_task_progress" />
+
+    <!--    Loader Elements     -->
+    <TextView
+        android:id="@+id/bg_loader_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ready_to_start_loader"
+        android:textSize="24sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg_task_button" />
+
+    <ProgressBar
+        android:id="@+id/bg_loader_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg_loader_text" />
+
+    <Button
+        android:id="@+id/bg_loader_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/start"
+        style="?attr/borderlessButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg_loader_progress" />
+    <!--        -->
 
 </android.support.constraint.ConstraintLayout>

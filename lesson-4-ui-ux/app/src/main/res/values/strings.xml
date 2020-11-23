@@ -73,7 +73,8 @@
     <string name="open_drawer">Drawer has opened</string>
     <string name="close_drawer">Drawer Closed</string>
     <string name="dummy">dummy</string>
-    <string name="ready_to_start">Ready To Start</string>
+    <string name="ready_to_start">Ready To Start Task</string>
     <string name="start">Start</string>
+    <string name="ready_to_start_loader">Ready to Start Loader</string>
 
 </resources>

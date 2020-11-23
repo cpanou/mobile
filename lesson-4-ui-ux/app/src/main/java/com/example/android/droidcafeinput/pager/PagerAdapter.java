@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.android.droidcafeinput.background.BackgroundFragment;
+import com.example.android.droidcafeinput.http.HttpFragment;
 import com.example.android.droidcafeinput.recyclerview.CookingFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
@@ -19,7 +20,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0: return new TabFragment1();
+            case 0: return new HttpFragment();
             case 1: return new BackgroundFragment();
             case 2: return new CookingFragment();
             default: return null;
