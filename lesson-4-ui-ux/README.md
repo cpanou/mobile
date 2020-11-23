@@ -1,53 +1,11 @@
-DroidCafeInput - Solution Code
-==============================
+Lesson 4 - User Interaction
+===========================
 
-App that demonstrates images used as buttons and a floating action button
-to launch a second activity, which demonstrates EditText input controls,
-radio buttons, and a spinner.
+This projects is the solution code following the google codelabs and concepts for [User Interaction](https://google-developer-training.github.io/android-developer-fundamentals-course-concepts-v2/unit-2-user-experience/lesson-4-user-interaction/4-1-c-buttons-and-clickable-images/4-1-c-buttons-and-clickable-images.html).
 
-Introduction
-------------
-
-This app created from the Basic Activity template lets a user tap an image
-to make a choice. The app displays a Toast message showing the user’s choice.
-The app also uses an intent so that when the user taps the floating
-action button, it launches the second Activity. The second Activity
-demonstrates EditText input controls, radio buttons, and a spinner
-for entering the label for a phone number.
-
-Pre-requisites
---------------
-
-You need to know:
-- How to open, build, and run apps with Android Studio.
-- Handling a Button click.
-- Editing an XML layout file.
-- Displaying a Toast message.
-
-Getting Started
----------------
-
-1. Download the code.
-2. Open the code in Android Studio.
-3. Run the app.
-
-
-License
--------
-
-Copyright 2018 Google, Inc.
-
-Licensed to the Apache Software Foundation (ASF) under one or more contributor
-license agreements.  See the NOTICE file distributed with this work for
-additional information regarding copyright ownership.  The ASF licenses this
-file to you under the Apache License, Version 2.0 (the "License"); you may not
-use this file except in compliance with the License.  You may obtain a copy of
-the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
-License for the specific language governing permissions and limitations under
-the License.
+The covered concepts are :
+* **4.1: Buttons and clickable images**
+* **4.2: Input controls**
+* **4.3: Menus and pickers**
+* **4.4: User navigation**
+* **4.5: RecyclerView**
