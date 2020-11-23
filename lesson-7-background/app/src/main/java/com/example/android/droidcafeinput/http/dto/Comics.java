@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Marver {
+public class Comics {
     private String code;
     private String status;
     private String copyright;
@@ -14,10 +14,10 @@ public class Marver {
     private String attributionHTML;
     private Object data;
 
-    public Marver() {
+    public Comics() {
     }
 
-    public Marver(String code, String status, String copyright, String attributionText, String attributionHTML, Object data) {
+    public Comics(String code, String status, String copyright, String attributionText, String attributionHTML, Object data) {
         this.code = code;
         this.status = status;
         this.copyright = copyright;
