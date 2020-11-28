@@ -25,10 +25,11 @@
         <receiver
             android:name=".connectivity.InternetConnectionStateChangeReceiver"
             android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-            </intent-filter>
         </receiver>
+
+        <service android:name=".marvel.MarvelService"
+            android:exported="false">
+        </service>
 
         <activity
             android:name=".CafeActivity"

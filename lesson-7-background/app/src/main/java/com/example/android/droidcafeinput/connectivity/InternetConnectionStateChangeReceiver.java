@@ -14,12 +14,10 @@ public class InternetConnectionStateChangeReceiver extends BroadcastReceiver {
         if (intent.getAction().equalsIgnoreCase("android.net.wifi.WIFI_STATE_CHANGED")) {
             //ConnectivityManager to test for Network Connection
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
             NetworkInfo wifiInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
             wifiInfo.isConnected();
             NetworkInfo mobileInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
             mobileInfo.isConnected();
-
             if (wifiInfo.isConnected() || mobileInfo.isConnected()) {
                 Toast.makeText(context, "Network Available", Toast.LENGTH_LONG).show();
             } else {

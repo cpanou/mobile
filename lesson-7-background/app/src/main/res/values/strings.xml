@@ -77,4 +77,10 @@
     <string name="start">Start</string>
     <string name="ready_to_start_loader">Ready to Start Loader</string>
 
+
+    <string name="generic_network_error">Something Went Wrong!</string>
+    <string name="MARVEL_PUBLIC_KEY">f4f60bbba0eb44b0a8ae7b22b70eada6</string>
+    <string name="MARVEL_PRIVATE_KEY">4f0a1bf779e40df51c8009217fffc104330e1ff7</string>
+
+
 </resources>

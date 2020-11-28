@@ -1,23 +1,18 @@
-package com.example.android.droidcafeinput.http.dto;
+package com.example.android.droidcafeinput.marvel.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Comics {
+public class MarvelResponse {
     private String code;
     private String status;
     private String copyright;
     private String attributionText;
     private String attributionHTML;
-    private Object data;
+    private ComicsData data;
 
-    public Comics() {
+    public MarvelResponse() {
     }
 
-    public Comics(String code, String status, String copyright, String attributionText, String attributionHTML, Object data) {
+    public MarvelResponse(String code, String status, String copyright, String attributionText, String attributionHTML, ComicsData data) {
         this.code = code;
         this.status = status;
         this.copyright = copyright;
@@ -66,11 +61,11 @@ public class Comics {
         this.attributionHTML = attributionHTML;
     }
 
-    public Object getData() {
+    public ComicsData getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(ComicsData data) {
         this.data = data;
     }
 }
