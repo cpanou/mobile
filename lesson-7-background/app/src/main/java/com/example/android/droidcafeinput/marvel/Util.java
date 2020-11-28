@@ -1,7 +1,5 @@
 package com.example.android.droidcafeinput.marvel;
 
-import android.support.annotation.NonNull;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
