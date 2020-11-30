@@ -133,11 +133,11 @@ public class ComicsFragment extends Fragment {
                             httpText.setText(title);
                         }
                     });
-
                 }
             });
         }
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
