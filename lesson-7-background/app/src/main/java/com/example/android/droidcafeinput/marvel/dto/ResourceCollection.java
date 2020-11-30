@@ -2,23 +2,23 @@ package com.example.android.droidcafeinput.marvel.dto;
 
 import java.util.List;
 
-public class MarvelCollection {
+public class ResourceCollection {
     private Integer available;
     private Integer returned;
     private String collectionURI;
-    private List<Item> items;
+    private List<Resource> items;
 
-    public MarvelCollection() {
+    public ResourceCollection() {
     }
 
     /**
-     "available": 14,
-     "returned": 14,
-     "collectionURI": "http://gateway.marvel.com/v1/public/comics/1749/characters",
-     "items": [ {}, {}  ]
-     }
-    */
-    public MarvelCollection(Integer available, Integer returned, String collectionURI, List<Item> items) {
+     * "available": 14,
+     * "returned": 14,
+     * "collectionURI": "http://gateway.marvel.com/v1/public/comics/1749/characters",
+     * "items": [ {}, {}  ]
+     * }
+     */
+    public ResourceCollection(Integer available, Integer returned, String collectionURI, List<Resource> items) {
         this.available = available;
         this.returned = returned;
         this.collectionURI = collectionURI;
@@ -49,11 +49,11 @@ public class MarvelCollection {
         this.collectionURI = collectionURI;
     }
 
-    public List<Item> getItems() {
+    public List<Resource> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<Resource> items) {
         this.items = items;
     }
 }

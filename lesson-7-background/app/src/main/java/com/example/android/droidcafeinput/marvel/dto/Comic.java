@@ -15,22 +15,22 @@ public class Comic {
     private String modified; //"2020-02-07T09:35:32-0500"
     private List<Image> images;
     private Image thumbnail;
-    private MarvelCollection characters;
+    private ResourceCollection characters;
 
     public Comic() {
     }
 
     /**
-     "thumbnail": {
-         "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4",
-         "extension": "jpg"
-     },
-     "images": [
-         {
-         "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4",
-         "extension": "jpg"
-         }
-     ],
+     * "thumbnail": {
+     * "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4",
+     * "extension": "jpg"
+     * },
+     * "images": [
+     * {
+     * "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4",
+     * "extension": "jpg"
+     * }
+     * ],
      */
 
     public Integer getId() {
@@ -129,11 +129,11 @@ public class Comic {
         this.thumbnail = thumbnail;
     }
 
-    public MarvelCollection getCharacters() {
+    public ResourceCollection getCharacters() {
         return characters;
     }
 
-    public void setCharacters(MarvelCollection characters) {
+    public void setCharacters(ResourceCollection characters) {
         this.characters = characters;
     }
 }

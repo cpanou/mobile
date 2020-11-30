@@ -1,24 +1,15 @@
 package com.example.android.droidcafeinput.marvel.dto;
 
 
-public class MarvelResponse {
+public class CreatorsResponse {
     private String code;
     private String status;
     private String copyright;
     private String attributionText;
     private String attributionHTML;
-    private ComicsData data;
+    private CreatorsDataContainer data;
 
-    public MarvelResponse() {
-    }
-
-    public MarvelResponse(String code, String status, String copyright, String attributionText, String attributionHTML, ComicsData data) {
-        this.code = code;
-        this.status = status;
-        this.copyright = copyright;
-        this.attributionText = attributionText;
-        this.attributionHTML = attributionHTML;
-        this.data = data;
+    public CreatorsResponse() {
     }
 
     public String getCode() {
@@ -61,11 +52,11 @@ public class MarvelResponse {
         this.attributionHTML = attributionHTML;
     }
 
-    public ComicsData getData() {
+    public CreatorsDataContainer getData() {
         return data;
     }
 
-    public void setData(ComicsData data) {
+    public void setData(CreatorsDataContainer data) {
         this.data = data;
     }
 }

@@ -8,17 +8,18 @@ public class Image {
     }
 
     /**
-        {
-             "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4",
-             "extension": "jpg"
-         }
+     * Example
+     * {
+     * "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4bc6494ed6eb4",
+     * "extension": "jpg"
+     * }
      */
     public Image(String path, String extension) {
         this.path = path;
         this.extension = extension;
     }
 
-    public String getUrl() {
+    public String url() {
         return path + "." + extension;
     }
 

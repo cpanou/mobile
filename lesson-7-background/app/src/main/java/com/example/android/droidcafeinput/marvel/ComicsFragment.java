@@ -18,7 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.droidcafeinput.R;
-import com.example.android.droidcafeinput.marvel.dto.MarvelResponse;
+import com.example.android.droidcafeinput.marvel.dto.CharactersResponse;
+import com.example.android.droidcafeinput.marvel.dto.ComicsResponse;
 
 
 public class ComicsFragment extends Fragment {
@@ -91,9 +92,9 @@ public class ComicsFragment extends Fragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    marvelService.getComics(new MarvelService.MarvelCallback() {
+                    marvelService.getComics(new MarvelService.MarvelCallback<ComicsResponse>() {
                         @Override
-                        public void onResponse(MarvelResponse marvelResponse) {
+                        public void onResponse(ComicsResponse marvelResponse) {
                             if (marvelResponse == null)
                                 httpText.setText(R.string.generic_network_error);
                             else
@@ -105,6 +106,38 @@ public class ComicsFragment extends Fragment {
         }
     }
 
+    private void setupCharacterButton(View root, boolean isNetworkingAvailable) {
+        Button button = root.findViewById(R.id.http_button);
+        final TextView httpText = root.findViewById(R.id.http_text);
+
+        if (!isNetworkingAvailable) {
+            String networkNotAvailable = "Please Connect to a Network";
+
+            httpText.setText(networkNotAvailable);
+            button.setEnabled(false);
+        } else {
+            final String id = "123123123";
+            button.setEnabled(true);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    marvelService.getCharacter(id, new MarvelService.MarvelCallback<CharactersResponse>() {
+                        @Override
+                        public void onResponse(CharactersResponse marvelResponse) {
+                            if(marvelResponse == null) {
+                                httpText.setText(R.string.generic_network_error);
+                                return;
+                            }
+                            String title = marvelResponse.getData().getResults().get(0).getName();
+                            String thumbnailUrl = marvelResponse.getData().getResults().get(0).getThumbnail().url();
+                            httpText.setText(title);
+                        }
+                    });
+
+                }
+            });
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

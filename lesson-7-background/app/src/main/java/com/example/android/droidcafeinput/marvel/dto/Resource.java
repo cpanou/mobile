@@ -1,21 +1,21 @@
 package com.example.android.droidcafeinput.marvel.dto;
 
-public class Item {
+public class Resource {
     private String resourceURI;
     private String name;
     private String type;
 
-    public Item() {
+    public Resource() {
     }
 
     /**
-         {
-             "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009156",
-             "name": "Apocalypse",
-             "type": "character"
-         },
+     * {
+     * "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009156",
+     * "name": "Apocalypse",
+     * "type": "character"
+     * },
      */
-    public Item(String resourceURI, String name, String type) {
+    public Resource(String resourceURI, String name, String type) {
         this.resourceURI = resourceURI;
         this.name = name;
         this.type = type;

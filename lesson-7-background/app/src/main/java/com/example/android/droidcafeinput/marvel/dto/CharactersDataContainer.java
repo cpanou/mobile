@@ -1,23 +1,15 @@
 package com.example.android.droidcafeinput.marvel.dto;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class ComicsData {
+public class CharactersDataContainer {
     private Integer offset;
     private Integer limit;
     private Integer total;
     private Integer count;
-    private ArrayList<Comic> results;
+    private List<Character> results;
 
-    public ComicsData() {
-    }
-
-    public ComicsData(Integer offset, Integer limit, Integer total, Integer count, ArrayList<Comic> results) {
-        this.offset = offset;
-        this.limit = limit;
-        this.total = total;
-        this.count = count;
-        this.results = results;
+    public CharactersDataContainer() {
     }
 
     public Integer getOffset() {
@@ -52,11 +44,11 @@ public class ComicsData {
         this.count = count;
     }
 
-    public ArrayList<Comic> getResults() {
+    public List<Character> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<Comic> results) {
+    public void setResults(List<Character> results) {
         this.results = results;
     }
 }
