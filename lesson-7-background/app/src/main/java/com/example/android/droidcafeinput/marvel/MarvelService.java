@@ -94,6 +94,11 @@ public class MarvelService extends Service {
         request(callback, ComicsResponse.class, BASE_URL + "/v1/public/comics?" + Util.getAuthWithMD5());
     }
 
+//
+//    public void getEmployees( final MarvelCallback<EmployeesResponse> callback) {
+//        request(callback, EmployeesResponse.class, BASE_URL + "/v1/public/comics?" + Util.getAuthWithMD5());
+//    }
+
 
     /**
      * HTTP METHODS
