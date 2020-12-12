@@ -1,0 +1,72 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MarvelComics" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/marvel_black</item>
+        <item name="colorPrimaryVariant">@color/marvel_gray</item>
+        <item name="colorPrimaryDark">@color/marvel_total_black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/marvel_red</item>
+        <item name="colorSecondaryVariant">@color/marvel_dark_red</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryDark</item>
+        <item name="statusBarScrim">@android:color/transparent</item>
+        <!--        <item name="searchViewStyle">@style/Widget.MarvelComics.SearchViewStyle</item>-->
+        <!-- Customize your theme here. -->
+        <!--        <item name="bottomNavigationStyle">@style/Widget.MarvelComics.BottomNavigationView</item>-->
+    </style>
+
+    <style name="Widget.MarvelComics.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="enforceTextAppearance">true</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="android:background">@color/marvel_red</item>
+    </style>
+
+    <style name="TextAppearance.App.CollapsingToolbar.Expanded" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="TextAppearance.App.CollapsingToolbar.Collapsed" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Theme.MarvelComics.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeOverlay.MarvelComics.AppBarOverlay" parent="Theme.MarvelComics">
+        <item name="colorPrimary">@color/marvel_black</item>
+        <item name="colorOnPrimary">@color/marvel_red</item>
+    </style>
+
+    <!--    <style name="Widget.MarvelComics.SearchViewStyle" parent="Widget.AppCompat.SearchView">-->
+    <!--        <item name="android:layout_width">220dp</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--        <item name="background">?attr/colorPrimaryVariant</item>-->
+    <!--    </style>-->
+
+    <style name="Widget.MarvelComics.ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:color">?attr/colorPrimary</item>
+        <item name="colorPrimary">?attr/colorSecondary</item>
+        <item name="android:colorPrimary">?attr/colorSecondary</item>
+        <item name="colorPrimarySurface">?attr/colorSecondary</item>
+    </style>
+
+    <style name="Theme.MarvelComics.PopupOverlay" parent="Theme.MarvelComics">
+        <item name="android:shadowColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.MarvelComics.NoActionBar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MarvelComics.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MarvelComics.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

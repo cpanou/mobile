@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.marvelcomics">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_gradient"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/security_config"
+        android:roundIcon="@mipmap/ic_launcher_gradient_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MarvelComics.NoActionBar">
+        <activity
+            android:name=".ResourceGridActivity"
+            android:label="@string/title_activity_resource_grid"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MarvelComics.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ResultsActivity"
+            android:launchMode="singleTop">
+
+            <!-- enable the search dialog to send searches to SearchableActivity -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".ResultsActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".receivers.NetworkReceiver"
+            android:exported="false" />
+    </application>
+
+</manifest>

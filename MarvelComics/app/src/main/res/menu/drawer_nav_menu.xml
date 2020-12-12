@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item android:title="@string/app_name">
+            <menu>
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/ic_profile"
+                    android:title="@string/title_profile" />
+            </menu>
+        </item>
+    </group>
+    <item android:title="@string/contact_us">
+        <menu>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_action_send"
+                android:title="@string/action_send" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_action_share"
+                android:title="@string/action_share" />
+        </menu>
+    </item>
+
+</menu>
